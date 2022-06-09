@@ -5,11 +5,13 @@ import prisma from "../../lib/prisma";
 
 export default async (req, res) => {
   const { email, password } = req.body;
+
   const user = await prisma.user.findUnique({
     where: {
       email,
     },
   });
+
   if (user && bcrypt.compareSync(password, user.password)) {
     const token = jwt.sign(
       {
@@ -22,6 +24,7 @@ export default async (req, res) => {
         expiresIn: "8h",
       }
     );
+
     res.setHeader(
       "Set-Cookie",
       cookie.serialize("MYUSIC_ACCESS_TOKEN", token, {
@@ -32,6 +35,7 @@ export default async (req, res) => {
         secure: process.env.NODE_ENV === "production",
       })
     );
+
     res.json(user);
   } else {
     res.status(401);

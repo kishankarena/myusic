@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import { artistsData } from "./songsData.js";
 import bcrypt from "bcrypt";
+
+import { artistsData } from "./songsData.js";
 
 const prisma = new PrismaClient();
 
@@ -31,6 +32,8 @@ const run = async () => {
     create: {
       email: "user@test.com",
       password: bcrypt.hashSync("password", salt),
+      firstName: "Kishan",
+      lastName: "Karena",
     },
   });
 
@@ -53,6 +56,7 @@ const run = async () => {
     })
   );
 };
+
 run()
   .catch((e) => {
     console.error(e);
