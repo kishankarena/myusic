@@ -1,6 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { useStoreState } from "easy-peasy";
-import Player from "./Player";
+
+import Player from "./Player.js";
 
 const PlayerBar = () => {
   const songs = useStoreState((state) => state.activeSongs);

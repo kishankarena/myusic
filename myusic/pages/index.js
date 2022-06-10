@@ -1,8 +1,9 @@
 import { Box, Text, Flex } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
-import GradientLayout from "../components/GradientLayout";
-import { useMe } from "../lib/hooks";
-import prisma from "../lib/prisma";
+
+import GradientLayout from "../components/GradientLayout.js";
+import { useMe } from "../lib/hooks.js";
+import prisma from "../lib/prisma.js";
 
 const Home = ({ artists }) => {
   const { user } = useMe();

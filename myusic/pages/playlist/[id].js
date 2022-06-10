@@ -1,7 +1,7 @@
-import { validateToken } from "../../lib/auth";
-import prisma from "../../lib/prisma";
-import GradientLayout from "../../components/GradientLayout";
-import SongsTable from "../../components/SongsTable";
+import { validateToken } from "../../lib/auth.js";
+import prisma from "../../lib/prisma.js";
+import GradientLayout from "../../components/GradientLayout.js";
+import SongsTable from "../../components/SongsTable.js";
 
 const getBGColor = (id) => {
   const colors = [
@@ -32,22 +32,22 @@ const Playlist = ({ playlist }) => {
   );
 };
 export const getServerSideProps = async ({ query, req }) => {
-   let user;
-   try{
-       user=validateToken(req.cookies.MYUSIC_ACCESS_TOKEN)
-   }catch(e){
-     return {
-       redirect: {
-         permanent: false,
-         destination: "./signin",
-       },
-     };
-   }
-    const { id } = validateToken(req.cookies.MYUSIC_ACCESS_TOKEN);
+  let user;
+  try {
+    user = validateToken(req.cookies.MYUSIC_ACCESS_TOKEN);
+  } catch (e) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "./signin",
+      },
+    };
+  } 
+  const { id } = validateToken(req.cookies.MYUSIC_ACCESS_TOKEN);
   const [playlist] = await prisma.playlist.findMany({
     where: {
       id: +query.id,
-      userId: id,
+      userId: user.id,
     },
     include: {
       songs: {

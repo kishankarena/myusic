@@ -1,7 +1,8 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
-import prisma from "../../lib/prisma";
+
+import prisma from "../../lib/prisma.js";
 
 export default async (req, res) => {
   const { email, password } = req.body;

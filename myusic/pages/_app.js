@@ -1,9 +1,10 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "reset-css";
 import { StoreProvider } from "easy-peasy";
-import { store } from "../lib/store";
+import { store } from "../lib/store.js";
+import Head from "next/head";
 
-import PlayerLayout from "../components/PlayerLayout";
+import PlayerLayout from "../components/PlayerLayout.js";
 
 const theme = extendTheme({
   colors: {
@@ -36,6 +37,9 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
       <StoreProvider store={store}>
+        <Head>
+          <title>Myusic</title>
+        </Head>
         {Component.authPage ? (
           <Component {...pageProps} />
         ) : (

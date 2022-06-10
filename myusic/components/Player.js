@@ -22,7 +22,7 @@ import {
 } from "react-icons/md";
 import { useStoreActions } from "easy-peasy";
 
-import { formatTime } from "../lib/formatters";
+import { formatTime } from "../lib/formatters.js";
 
 const Player = ({ songs, activeSong }) => {
   const [playing, setPlaying] = useState(true);
@@ -82,9 +82,8 @@ const Player = ({ songs, activeSong }) => {
           return nextSong();
         }
         return next;
-      } else {
-        return state === songs.length - 1 ? 0 : state + 1;
       }
+      return state === songs.length - 1 ? 0 : state + 1;
     });
   };
   const onEnd = () => {

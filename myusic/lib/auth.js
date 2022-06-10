@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
-import prisma from "./prisma";
+
+import prisma from "./prisma.js";
 
 export const validateRoute = (handler) => {
   return async (req, res) => {
