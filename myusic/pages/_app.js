@@ -1,8 +1,9 @@
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import Head from "next/head";
 import "reset-css";
+
 import { StoreProvider } from "easy-peasy";
 import { store } from "../lib/store.js";
-import Head from "next/head";
 
 import PlayerLayout from "../components/PlayerLayout.js";
 

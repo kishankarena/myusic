@@ -42,8 +42,7 @@ export const getServerSideProps = async ({ query, req }) => {
         destination: "./signin",
       },
     };
-  } 
-  const { id } = validateToken(req.cookies.MYUSIC_ACCESS_TOKEN);
+  }
   const [playlist] = await prisma.playlist.findMany({
     where: {
       id: +query.id,
