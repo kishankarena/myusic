@@ -24,10 +24,6 @@ import { useStoreActions } from 'easy-peasy'
 
 import { formatTime } from '../lib/formatters.js'
 
-// import * as React from 'react'
-// import * as PropTypes from 'prop-types'
-// import ariaLabelPropType from 'aria-label-prop-type'
-
 const Player = ({ songs, activeSong }) => {
   const [playing, setPlaying] = useState(true)
   const [index, setIndex] = useState(0)
