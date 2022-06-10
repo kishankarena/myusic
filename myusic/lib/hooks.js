@@ -1,5 +1,6 @@
 import useSWR from "swr";
-import fetcher from "./fetcher";
+
+import fetcher from "./fetcher.js";
 
 export const useMe = () => {
   const { data, error } = useSWR("/me", fetcher);

@@ -1,5 +1,5 @@
-import fetcher from "./fetcher";
+import fetcher from "./fetcher.js";
 
-export const auth = (mode,body)=>{
-    return fetcher(`/${mode}`,body)
-}
+export const auth = (mode, body) => {
+  return fetcher(`/${mode}`, body);
+};

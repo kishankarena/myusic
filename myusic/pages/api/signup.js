@@ -1,19 +1,18 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
-import prisma from "../../lib/prisma";
+
+import prisma from "../../lib/prisma.js";
 
 export default async (req, res) => {
   const salt = bcrypt.genSaltSync();
-  const { email, password, firstName, lastName } = req.body;
+  const { email, password } = req.body;
   let user;
   try {
     user = await prisma.user.create({
       data: {
         email,
         password: bcrypt.hashSync(password, salt),
-        firstName: "",
-        lastName: ""
       },
     });
   } catch (e) {

@@ -1,7 +1,7 @@
-import AuthForm from "../components/AuthForm";
+import AuthForm from "../components/AuthForm.js";
 
 const Signup = () => {
-  return <AuthForm mode = "signup" />;
+  return <AuthForm mode="signup" />;
 };
 
 Signup.authPage = true;

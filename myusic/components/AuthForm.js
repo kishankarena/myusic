@@ -1,9 +1,9 @@
 import { Box, Flex, Input, Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useSWRConfig } from "swr";
-import { auth } from "../lib/mutations";
 import NextImage from "next/image";
+
+import { auth } from "../lib/mutations.js";
 
 const AuthForm = ({ mode }) => {
   const [email, setEmail] = useState("");
@@ -11,14 +11,14 @@ const AuthForm = ({ mode }) => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (e)=>{
-    e.preventDefault()
-    setIsLoading(true)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
 
-   const user = await auth (mode,{email , password})
-   setIsLoading(false)
-   router.push('/')
-  }
+    await auth(mode, { email, password });
+    setIsLoading(false);
+    router.push("/");
+  };
 
   return (
     <Box height="100vh" width="100vw" bg="black">

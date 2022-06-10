@@ -6,7 +6,6 @@ import {
   ListItem,
   ListIcon,
   Divider,
-  Center,
   LinkBox,
   LinkOverlay,
 } from "@chakra-ui/layout";
@@ -17,7 +16,8 @@ import {
   MdPlaylistAdd,
   MdFavorite,
 } from "react-icons/md";
-import { usePlaylist } from "../lib/hooks";
+
+import { usePlaylist } from "../lib/hooks.js";
 
 const navMenu = [
   {
@@ -49,10 +49,8 @@ const musicMenu = [
   },
 ];
 
-// const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i + 1}`);
 const Sidebar = () => {
   const { playlists } = usePlaylist();
-  console.log(playlists);
 
   return (
     <Box
